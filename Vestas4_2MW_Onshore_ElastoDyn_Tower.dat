@@ -1,7 +1,7 @@
 ------- ELASTODYN V1.00.* TOWER INPUT FILE -------------------------------------
 Vestas 150 4.2MW baseline tower input properties.
 ---------------------- TOWER PARAMETERS ----------------------------------------
-         11   NTwInpSt    - Number of input stations to specify tower geometry
+         12   NTwInpSt    - Number of input stations to specify tower geometry
           1   TwrFADmp(1) - Tower 1st fore-aft mode structural damping ratio (%)
           1   TwrFADmp(2) - Tower 2nd fore-aft mode structural damping ratio (%)
           1   TwrSSDmp(1) - Tower 1st side-to-side mode structural damping ratio (%)
@@ -15,7 +15,7 @@ Vestas 150 4.2MW baseline tower input properties.
           1   AdjFASt     - Factor to adjust tower fore-aft stiffness (-)
           1   AdjSSSt     - Factor to adjust tower side-to-side stiffness (-)
 ---------------------- DISTRIBUTED TOWER PROPERTIES ----------------------------
-  HtFract       TMassDen         TwFAStif       TwSSStif
+   HtFract       TMassDen         TwFAStif       TwSSStif
    (-)           (kg/m)           (Nm^2)         (Nm^2)
 0.0000000E+00  5.5908700E+03  6.1434300E+11  6.1434300E+11  
 1.0000000E-01  5.2324300E+03  5.3482100E+11  5.3482100E+11  
@@ -27,6 +27,7 @@ Vestas 150 4.2MW baseline tower input properties.
 7.0000000E-01  3.3290300E+03  2.0645700E+11  2.0645700E+11  
 8.0000000E-01  3.0530100E+03  1.7185100E+11  1.7185100E+11  
 9.0000000E-01  2.7887500E+03  1.4177600E+11  1.4177600E+11  
+9.5000000E-01  2.6887500E+03  1.2177600E+11  1.2177600E+11  
 1.0000000E+00  2.5362700E+03  1.1582000E+11  1.1582000E+11  
 ---------------------- TOWER FORE-AFT MODE SHAPES ------------------------------
      0.7004   TwFAM1Sh(2) - Mode 1, coefficient of x^2 term
@@ -50,4 +51,3 @@ Vestas 150 4.2MW baseline tower input properties.
    -224.904   TwSSM2Sh(4) -       , coefficient of x^4 term
     298.536   TwSSM2Sh(5) -       , coefficient of x^5 term
    -135.838   TwSSM2Sh(6) -       , coefficient of x^6 term
-

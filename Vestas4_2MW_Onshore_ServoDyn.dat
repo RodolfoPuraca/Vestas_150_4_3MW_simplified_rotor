@@ -17,7 +17,7 @@ False         Echo         - Echo input data to <RootName>.ech (flag)
           0   BlPitchF(3)  - Blade 3 final pitch for pitch maneuvers (degrees) [unused for 2 blades]
 ---------------------- GENERATOR AND TORQUE CONTROL ----------------------------
           5   VSContrl     - Variable-speed control mode {0: none, 1: simple VS, 3: user-defined from routine UserVSCont, 4: user-defined from Simulink/Labview, 5: user-defined from Bladed-style DLL} (switch)
-          2   GenModel     - Generator model {1: simple, 2: Thevenin, 3: user-defined from routine UserGen} (switch) [used only when VSContrl=0]
+          1   GenModel     - Generator model {1: simple, 2: Thevenin, 3: user-defined from routine UserGen} (switch) [used only when VSContrl=0]
        94.4   GenEff       - Generator efficiency [ignored by the Thevenin and user-defined generator models] (%)
 True          GenTiStr     - Method to start the generator {T: timed using TimGenOn, F: generator speed using SpdGenOn} (flag)
 True          GenTiStp     - Method to stop the generator {T: timed using TimGenOf, F: when generator power = 0} (flag)
@@ -25,10 +25,10 @@ True          GenTiStp     - Method to stop the generator {T: timed using TimGen
           0   TimGenOn     - Time to turn on the generator for a startup (s) [used only when GenTiStr=True]
      9999.9   TimGenOf     - Time to turn off the generator (s) [used only when GenTiStp=True]
 ---------------------- SIMPLE VARIABLE-SPEED TORQUE CONTROL --------------------
-     9999.9   VS_RtGnSp    - Rated generator speed for simple variable-speed generator control (HSS side) (rpm) [used only when VSContrl=1]
-     9999.9   VS_RtTq      - Rated generator torque/constant generator torque in Region 3 for simple variable-speed generator control (HSS side) (N-m) [used only when VSContrl=1]
-     9999.9   VS_Rgn2K     - Generator torque constant in Region 2 for simple variable-speed generator control (HSS side) (N-m/rpm^2) [used only when VSContrl=1]
-     9999.9   VS_SlPc      - Rated generator slip percentage in Region 2 1/2 for simple variable-speed generator control (%) [used only when VSContrl=1]
+7.559987120819503      VS_RtGnSp   - Rated generator speed for simple variable-speed generator control (HSS side) (rpm) [used only when VSContrl=1]
+    19624046.66639   VS_RtTq      - Rated generator torque/constant generator torque in Region 3 for simple variable-speed generator control (HSS side) (N-m) [used only when VSContrl=1]
+   343357.4355671095   VS_Rgn2K     - Generator torque constant in Region 2 for simple variable-speed generator control (HSS side) (N-m/rpm^2) [used only when VSContrl=1]
+    2.0      VS_SlPc      - Rated generator slip percentage in Region 2 1/2 for simple variable-speed generator control (%) [used only when VSContrl=1]
 ---------------------- SIMPLE INDUCTION GENERATOR ------------------------------
      9999.9   SIG_SlPc     - Rated generator slip percentage (%) [used only when VSContrl=0 and GenModel=1]
      9999.9   SIG_SySp     - Synchronous (zero-torque) generator speed (rpm) [used only when VSContrl=0 and GenModel=1]
@@ -36,7 +36,7 @@ True          GenTiStp     - Method to stop the generator {T: timed using TimGen
      9999.9   SIG_PORt     - Pull-out ratio (Tpullout/Trated) (-) [used only when VSContrl=0 and GenModel=1]
 ---------------------- THEVENIN-EQUIVALENT INDUCTION GENERATOR -----------------
      9999.9   TEC_Freq     - Line frequency [50 or 60] (Hz) [used only when VSContrl=0 and GenModel=2]
-       9998   TEC_NPol     - Number of poles [even integer > 0] (-) [used only when VSContrl=0 and GenModel=2]
+       100   TEC_NPol     - Number of poles [even integer > 0] (-) [used only when VSContrl=0 and GenModel=2]
      9999.9   TEC_SRes     - Stator resistance (ohms) [used only when VSContrl=0 and GenModel=2]
      9999.9   TEC_RRes     - Rotor resistance (ohms) [used only when VSContrl=0 and GenModel=2]
      9999.9   TEC_VLL      - Line-to-line RMS voltage (volts) [used only when VSContrl=0 and GenModel=2]
@@ -46,16 +46,16 @@ True          GenTiStp     - Method to stop the generator {T: timed using TimGen
 ---------------------- HIGH-SPEED SHAFT BRAKE ----------------------------------
           0   HSSBrMode    - HSS brake model {0: none, 1: simple, 3: user-defined from routine UserHSSBr, 4: user-defined from Simulink/Labview, 5: user-defined from Bladed-style DLL} (switch)
      9999.9   THSSBrDp     - Time to initiate deployment of the HSS brake (s)
-        0.6   HSSBrDT      - Time for HSS-brake to reach full deployment once initiated (sec) [used only when HSSBrMode=1]
+     9999.9   HSSBrDT      - Time for HSS-brake to reach full deployment once initiated (sec) [used only when HSSBrMode=1]
      9999.9   HSSBrTqF     - Fully deployed HSS-brake torque (N-m)
 ---------------------- NACELLE-YAW CONTROL -------------------------------------
           0   YCMode       - Yaw control mode {0: none, 3: user-defined from routine UserYawCont, 4: user-defined from Simulink/Labview, 5: user-defined from Bladed-style DLL} (switch)
      9999.9   TYCOn        - Time to enable active yaw control (s) [unused when YCMode=0]
           0   YawNeut      - Neutral yaw position--yaw spring force is zero at this yaw (degrees)
 8458453511.0   YawSpr       - Nacelle-yaw spring constant (N-m/rad)
-28561762.0    YawDamp      - Nacelle-yaw damping constant (N-m/(rad/s))
+15561762.0    YawDamp      - Nacelle-yaw damping constant (N-m/(rad/s))
      9999.9   TYawManS     - Time to start override yaw maneuver and end standard yaw control (s)
-          2   YawManRat    - Yaw maneuver rate (in absolute value) (deg/s)
+        0.25   YawManRat    - Yaw maneuver rate (in absolute value) (deg/s)
           0   NacYawF      - Final yaw angle for override yaw maneuvers (degrees)
 ---------------------- AERODYNAMIC FLOW CONTROL --------------------------------
           0   AfCmode      - Airfoil control mode {0: none, 1: cosine wave cycle, 4: user-defined from Simulink/Labview, 5: user-defined from Bladed-style DLL} (switch)
@@ -75,7 +75,7 @@ True          GenTiStp     - Method to stop the generator {T: timed using TimGen
           0   CCmode       - Cable control mode {0: none, 4: user-defined from Simulink/Labview, 5: user-defined from Bladed-style DLL} (switch)
 ---------------------- BLADED INTERFACE ---------------------------------------- [used only with Bladed Interface]
 "./ServoData/DISCON/build/DISCON.dll"    DLL_FileName - Name/location of the dynamic library {.dll [Windows] or .so [Linux]} in the Bladed-DLL format (-) [used only with Bladed Interface]
-"Vestas_V150_42MW_DISCON.IN"    DLL_InFile   - Name of input file sent to the DLL (-) [used only with Bladed Interface]
+"DISCON.IN"    DLL_InFile   - Name of input file sent to the DLL (-) [used only with Bladed Interface]
 "DISCON"      DLL_ProcName - Name of procedure in DLL to be called (-) [case sensitive; used only with DLL Interface]
 "default"     DLL_DT       - Communication interval for dynamic library (s) (or "default") [used only with Bladed Interface]
 false         DLL_Ramp     - Whether a linear ramp should be used between DLL_DT time steps [introduces time shift when true] (flag) [used only with Bladed Interface]
@@ -98,11 +98,11 @@ false         DLL_Ramp     - Whether a linear ramp should be used between DLL_DT
  GenSpd_TLU   GenTrq_TLU
  (rpm)          (Nm)
 ---------------------- OUTPUT --------------------------------------------------
-False          SumPrint     - Print summary data to <RootName>.sum (flag) (currently unused)
+True          SumPrint     - Print summary data to <RootName>.sum (flag) (currently unused)
           1   OutFile      - Switch to determine where output will be placed: {1: in module output file only; 2: in glue code output file only; 3: both} (currently unused)
 True          TabDelim     - Use tab delimiters in text tabular output file? (flag) (currently unused)
 "ES10.3E2"    OutFmt       - Format used for text tabular output (except time).  Resulting field should be 10 characters. (quoted string) (currently unused)
-          0   TStart       - Time to begin tabular output (s) (currently unused)
+          30   TStart       - Time to begin tabular output (s) (currently unused)
               OutList      - The next line(s) contains a list of output parameters.  See OutListParameters.xlsx for a listing of available output channels, (-)
 "GenPwr"                  - Electrical generator power and torque
 "GenTq"                   - Electrical generator power and torque
